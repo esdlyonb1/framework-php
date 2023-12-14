@@ -1,7 +1,7 @@
 <?php
-require_once "../debugmode.php";
-require_once "../bordel/logique.php";
-require_once "../bordel/database.php";
+require_once "../bordel/debugmode.php";
+require_once "../core/View/View.php";
+require_once "../src/Model/Sushi.php";
 
 if(isset($_POST['type']) &&
     isset($_POST['description']) &&
@@ -14,7 +14,9 @@ if(isset($_POST['type']) &&
     //aussi ajouter une verification
     // //que les variables contiennent bien du texte
 
-    insertSushi($type, $description, $poisson);
+    $modelSushi = new \Model\Sushi();
+
+    $modelSushi->insert($type, $description, $poisson);
 
     header("Location: index.php");
 
@@ -23,4 +25,4 @@ if(isset($_POST['type']) &&
 }
 
 
-afficher("sushi/create", ["pageTitle"=> "nouveau sushi"]);
+View::render("sushi/create", ["pageTitle"=> "nouveau sushi"]);

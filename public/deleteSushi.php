@@ -1,13 +1,12 @@
-<?php require_once "../debugmode.php";
-require_once "../bordel/logique.php";
-require_once "../bordel/database.php";
+<?php require_once "../bordel/debugmode.php";
+require_once "../src/Model/Sushi.php";
 
 if(!isset($_GET['id']) || !ctype_digit($_GET['id'])){
     header("Location: index.php");
 }
    $id = $_GET['id'];
-
-    deleteSushi($id);
+$modelSushi = new \Model\Sushi();
+$modelSushi->delete($id);
 
     header('Location: index.php');
 

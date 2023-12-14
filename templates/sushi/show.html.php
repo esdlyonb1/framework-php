@@ -13,6 +13,7 @@
 
     <div class="comment border border-dark">
         <p><strong><?= $comment['content'] ?></strong></p>
+        <a href="deleteComment.php?id=<?=$comment['id']?>" class="btn btn-danger">Supprimer</a>
     </div>
 
     <?php endforeach; ?>
