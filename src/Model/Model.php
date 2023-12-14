@@ -3,7 +3,7 @@ namespace Model;
 
 require_once "../core/Database/PDOMySQL.php";
 
-class Model
+abstract class Model
 {
     protected string $tableName;
 
