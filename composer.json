@@ -1,0 +1,20 @@
+{
+    "name": "jeanlewebdev/framework-php-b1",
+    "description": "a simple php framework",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jean Lewebdev",
+            "email": "jeanlewebdev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
