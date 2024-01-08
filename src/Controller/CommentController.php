@@ -2,31 +2,33 @@
 
 namespace App\Controller;
 
-use App\Model\Comment;
 
-class CommentController
+use App\Repository\CommentRepository;
+use Core\Controller\Controller;
+
+class CommentController extends Controller
 {
 
     public function create()
     {
         if(!isset($_POST['content']) || empty($_POST['content'])){
 
-            header("Location: index.php");
+          return $this->redirect();
         }
 
         if(!isset($_POST['sushiId']) || !ctype_digit($_POST['sushiId']) )
         {
-            header("Location: index.php");
+            return $this->redirect();
 
         }
 
         $commentContent = $_POST['content'];
         $sushiId = $_POST['sushiId'];
 
-        $modelComment = new Comment();
+        $commentRepository = new CommentRepository();
 
-        $modelComment->insert($commentContent, $sushiId);
+        $commentRepository->insert($commentContent, $sushiId);
 
-       return header("Location: sushi.php?id=$sushiId");
+       return $this->redirect("sushi.php?id=$sushiId");
     }
 }

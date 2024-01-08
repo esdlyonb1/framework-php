@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Model;
+namespace App\Repository;
 
-class Comment extends Model
+class CommentRepository extends Repository
 {
-
     protected string $tableName = "comments";
 
-   public function findAllBySushi(int $id):array
+    public function findAllBySushi(int $id):array
     {
 
 
@@ -22,7 +21,7 @@ class Comment extends Model
         return $comments;
     }
 
-   public function insert(string $content, int $sushiId):void
+    public function insert(string $content, int $sushiId):void
     {
 
         $query = $this->pdo->prepare("INSERT INTO comments SET content = :content, sushi_id = :sushiId");

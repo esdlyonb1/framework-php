@@ -4,20 +4,21 @@
 namespace App\Controller;
 
 
-use Core\View\View;
-use App\Model\Comment;
-use App\Model\Sushi;
+use App\Repository\CommentRepository;
+use App\Repository\SushiRepository;
+use Core\Controller\Controller;
 
-class SushiController
+
+class SushiController extends Controller
 {
     public function index()
     {
 
-        $modelSushi = new Sushi();
+        $sushiRepository = new SushiRepository();
 
-        $sushis = $modelSushi->findAll();
+        $sushis = $sushiRepository->findAll();
 
-     return View::render("sushi/index", [
+     return $this->render("sushi/index", [
             "pageTitle"=>"Les Sushis",
             "sushis"=>$sushis]);
 
@@ -28,22 +29,31 @@ class SushiController
     {
         if(!isset($_GET['id']) || !ctype_digit($_GET['id']))
         {
-            header("Location: index.php");
+            return $this->redirect();
         }
 
         $id = $_GET['id'];
 
-        $modelSushi = new Sushi();
+        $sushiRepository = new SushiRepository();
 
-        $sushi = $modelSushi->find($id);
+        $sushi = $sushiRepository->find($id);
 
-        $modelComment = new Comment();
+        $commentRepository = new CommentRepository();
 
-        $comments = $modelComment->findAllBySushi($id);
+        $comments = $commentRepository->findAllBySushi($id);
 
-       return View::render('sushi/show', ["sushi"=>$sushi,
+       return $this->render('sushi/show', ["sushi"=>$sushi,
             "comments"=>$comments,
             "pageTitle"=> $sushi['poisson'] ]);
+    }
+
+    public function delete()
+    {
+        // logique de suppression du sushi
+
+        return $this->redirect();
+
+
     }
 
 }

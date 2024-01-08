@@ -1,20 +1,23 @@
 <?php
-namespace App\Model;
+namespace App\Repository;
 
 use Core\Database\PDOMySQL;
 
-abstract class Model
+abstract class Repository
 {
-    protected string $tableName;
 
     protected \PDO $pdo;
+
+
+
+    protected string $tableName;
+
 
     public function __construct()
     {
 
         $this->pdo = PDOMySQL::getPdo();
     }
-
 
     public function findAll():array
     {
@@ -51,6 +54,7 @@ abstract class Model
         ]);
 
     }
+
 
 
 }
