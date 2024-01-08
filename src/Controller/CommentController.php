@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
 require_once "../src/Model/Comment.php";
 require_once "../core/View/View.php";

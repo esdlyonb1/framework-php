@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace App\Model;
 require_once "Model.php";
 
 class Comment extends Model

@@ -1,23 +1,23 @@
 <?php
 
 
-namespace Controller;
+namespace App\Controller;
 
-require_once "../src/Model/Sushi.php";
-require_once "../src/Model/Comment.php";
-require_once "../core/View/View.php";
 
+use Core\View\View;
+use App\Model\Comment;
+use App\Model\Sushi;
 
 class SushiController
 {
     public function index()
     {
 
-        $modelSushi = new \Model\Sushi();
+        $modelSushi = new Sushi();
 
         $sushis = $modelSushi->findAll();
 
-     return \View::render("sushi/index", [
+     return View::render("sushi/index", [
             "pageTitle"=>"Les Sushis",
             "sushis"=>$sushis]);
 
@@ -33,15 +33,15 @@ class SushiController
 
         $id = $_GET['id'];
 
-        $modelSushi = new \Model\Sushi();
+        $modelSushi = new Sushi();
 
         $sushi = $modelSushi->find($id);
 
-        $modelComment = new \Model\Comment();
+        $modelComment = new Comment();
 
         $comments = $modelComment->findAllBySushi($id);
 
-       return \View::render('sushi/show', ["sushi"=>$sushi,
+       return View::render('sushi/show', ["sushi"=>$sushi,
             "comments"=>$comments,
             "pageTitle"=> $sushi['poisson'] ]);
     }
