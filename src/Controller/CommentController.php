@@ -2,8 +2,7 @@
 
 namespace App\Controller;
 
-require_once "../src/Model/Comment.php";
-require_once "../core/View/View.php";
+use App\Model\Comment;
 
 class CommentController
 {

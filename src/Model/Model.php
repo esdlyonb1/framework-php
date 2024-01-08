@@ -1,8 +1,7 @@
 <?php
 namespace App\Model;
 
-require_once "../core/Database/PDOMySQL.php";
-
+use Core\Database\PDOMySQL;
 
 abstract class Model
 {
@@ -13,7 +12,7 @@ abstract class Model
     public function __construct()
     {
 
-        $this->pdo = \PDOMySQL::getPdo();
+        $this->pdo = PDOMySQL::getPdo();
     }
 
 

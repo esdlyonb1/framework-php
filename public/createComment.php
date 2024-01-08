@@ -1,6 +1,6 @@
 <?php
-require_once "../src/Controller/CommentController.php";
-$commentController = new Controller\CommentController();
+require_once "../vendor/autoload.php";
+$commentController = new App\Controller\CommentController();
 $commentController->create();
 
 
