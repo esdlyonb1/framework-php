@@ -1,5 +1,5 @@
 {
-    "name": "jeanlewebdev/framework-php-b1",
+    "name": "esdlyondevweb/framework-php-b1",
     "description": "a simple php framework",
     "type": "library",
     "license": "MIT",
@@ -11,8 +11,8 @@
     },
     "authors": [
         {
-            "name": "Jean Lewebdev",
-            "email": "jeanlewebdev@gmail.com"
+            "name": "ESD Lyon Dev Web",
+            "email": "pierre.lacognata@mail-esd.com"
         }
     ],
     "minimum-stability": "dev",
