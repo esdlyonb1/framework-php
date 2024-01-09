@@ -16,5 +16,8 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "vendor/esdlyondevweb/framework-php-b1": "*"
+
+    }
 }
