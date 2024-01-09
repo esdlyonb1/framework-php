@@ -15,6 +15,8 @@
             "email": "pierre.lacognata@mail-esd.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {}
-}
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.1"
+    }
+    }
