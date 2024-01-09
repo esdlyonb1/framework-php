@@ -1,7 +1,7 @@
 {
     "name": "esdlyondevweb/framework-php-b1",
     "description": "a simple php framework",
-    "type": "library",
+    "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -16,8 +16,5 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {
-        "vendor/framework-php-b1": "*"
-
-    }
+    "require": {}
 }
