@@ -5,4 +5,5 @@ namespace Core\Http;
 class Request
 {
 
+
 }

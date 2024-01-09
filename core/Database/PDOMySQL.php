@@ -1,15 +1,21 @@
 <?php
 namespace Core\Database;
+use Core\Environment\DotEnv;
+
 class PDOMySQL
 {
 
+
    public static function getPdo(){
 
-        $dbHost = "localhost";
-        $dbName = "nourriture";
+       $dotEnv = new DotEnv();
 
-        $username = "sushi-admin";
-        $password = "blablabla";
+
+        $dbHost = $dotEnv->getVariable("DBHOST");
+        $dbName = $dotEnv->getVariable("DBNAME");
+
+        $username = $dotEnv->getVariable("USERNAME");
+        $password = $dotEnv->getVariable("PASSWORD");
 
         $pdo = new \PDO(
             "mysql:host=$dbHost;dbname=$dbName",
@@ -17,7 +23,7 @@ class PDOMySQL
             $password,
             [
                 \PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION,
-                \PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_ASSOC
+                \PDO::ATTR_DEFAULT_FETCH_MODE=>\PDO::FETCH_OBJ
             ]
         );
         return $pdo;

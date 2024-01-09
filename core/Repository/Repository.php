@@ -1,6 +1,7 @@
 <?php
 namespace Core\Repository;
 
+use App\Entity\Pizza;
 use Core\Attributes\Table;
 use Core\Attributes\TargetEntity;
 use Core\Database\PDOMySQL;
@@ -43,7 +44,7 @@ abstract class Repository
 
         $query = $this->pdo->query("SELECT * FROM $this->tableName");
 
-        $items = $query->fetchAll();
+        $items = $query->fetchAll(\PDO::FETCH_CLASS,get_class(new $this->targetEntity()));
 
         return $items;
     }
@@ -57,6 +58,8 @@ abstract class Repository
         $query->execute([
             "id" => $id
         ]);
+
+        $query->setFetchMode(\PDO::FETCH_CLASS,get_class(new $this->targetEntity()));
 
         $item = $query->fetch();
 

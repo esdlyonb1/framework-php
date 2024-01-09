@@ -2,19 +2,28 @@
 
 namespace Core\Http;
 
+use Core\View\View;
+
 class Response
 {
 
+    public function render($nomDeTemplate, $donnees)
+    {
+         View::render($nomDeTemplate, $donnees);
+         return $this;
+    }
 
-    public static function redirect(string $route = null)
+
+    public function redirect(string $route = null)
     {
         if(!$route){
             header("Location: index.php");
             exit;
         }else{
             header("Location: ${route}");
-            exit;
+
         }
+        return $this;
 
     }
 
