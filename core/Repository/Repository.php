@@ -49,7 +49,7 @@ abstract class Repository
         return $items;
     }
 
-    public function find(int $id):array
+    public function find(int $id):object
     {
 
 
