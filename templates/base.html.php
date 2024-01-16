@@ -1,3 +1,8 @@
+<?php
+
+use Core\Session\Flash;
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,6 +33,16 @@
         </div>
     </div>
 </nav>
+
+<div class="container">
+    <?php foreach (Flash::getFlashes() as $flash) : ?>
+        <div class="alert alert-<?= $flash['color'] ?> alert-dismissible fade show" role="alert">
+            <?= $flash['message'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    <?php  endforeach; ?>
+</div>
 <div class="container mt-5">
 
     <?= $content ?>

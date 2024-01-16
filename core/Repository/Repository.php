@@ -49,14 +49,14 @@ abstract class Repository
         return $items;
     }
 
-    public function find(object $object):object
+    public function find($id):object
     {
 
 
         $query = $this->pdo->prepare("SELECT * FROM $this->tableName WHERE id = :id");
 
         $query->execute([
-            "id" => $object->getId()
+            "id" => $id
         ]);
 
         $query->setFetchMode(\PDO::FETCH_CLASS,get_class(new $this->targetEntity()));
@@ -66,12 +66,12 @@ abstract class Repository
         return $item;
     }
 
-    public function delete(int $id):void
+    public function delete(object $object):void
     {
 
         $query = $this->pdo->prepare("DELETE FROM $this->tableName WHERE id = :id");
         $query->execute([
-            "id"=>$id
+            "id"=>$object->getId()
         ]);
 
     }

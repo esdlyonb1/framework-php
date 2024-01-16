@@ -17,6 +17,8 @@ class PDOMySQL
         $username = $dotEnv->getVariable("USERNAME");
         $password = $dotEnv->getVariable("PASSWORD");
 
+
+
         $pdo = new \PDO(
             "mysql:host=$dbHost;dbname=$dbName",
             $username,
