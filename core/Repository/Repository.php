@@ -49,14 +49,14 @@ abstract class Repository
         return $items;
     }
 
-    public function find(int $id):object
+    public function find(object $object):object
     {
 
 
         $query = $this->pdo->prepare("SELECT * FROM $this->tableName WHERE id = :id");
 
         $query->execute([
-            "id" => $id
+            "id" => $object->getId()
         ]);
 
         $query->setFetchMode(\PDO::FETCH_CLASS,get_class(new $this->targetEntity()));
