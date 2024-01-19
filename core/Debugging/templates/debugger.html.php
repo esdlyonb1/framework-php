@@ -11,16 +11,19 @@
             margin: 0;
             padding: 0;
         }
+        .nav-debug{
+            background-color: red;
+            height: 13vh;
+        }
     </style>
 </head>
 <body>
-<div style="
-background-color: red;
-height: 13vh;
-
-"><h2>Debugger</h2></div>
+<div class="nav-debug">
+    <h2>Debugger</h2>
+</div>
 
 <?= $content ?>
+
 
 </body>
 </html>

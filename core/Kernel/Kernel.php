@@ -11,20 +11,12 @@ class Kernel
 
     public static function run()
     {
-        $dotEnv = new DotEnv();
-        $environment = $dotEnv->getVariable("ENVIRONMENT");
 
-        if($environment === "dev"){
-        //    \Core\Debugging\Debugger::run();
             $debugger = new Debugger();
             $debugger->run();
 
-        }
-        if($environment === "dev"){
-            //    \Core\Debugging\Debugger::run();
-             $debugger->profilerBar();
 
-        }
+
 
         Session::start();
 
@@ -42,7 +34,6 @@ class Kernel
     $controller = new $controllerName();
 
     $controller->$action();
-
 
 
 
