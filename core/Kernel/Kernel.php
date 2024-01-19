@@ -2,6 +2,7 @@
 
 namespace Core\Kernel;
 
+use Core\Debugging\Debugger;
 use Core\Environment\DotEnv;
 use Core\Session\Session;
 
@@ -14,7 +15,15 @@ class Kernel
         $environment = $dotEnv->getVariable("ENVIRONMENT");
 
         if($environment === "dev"){
-            \Core\Debugging\Debugger::run();
+        //    \Core\Debugging\Debugger::run();
+            $debugger = new Debugger();
+            $debugger->run();
+
+        }
+        if($environment === "dev"){
+            //    \Core\Debugging\Debugger::run();
+             $debugger->profilerBar();
+
         }
 
         Session::start();
@@ -33,6 +42,7 @@ class Kernel
     $controller = new $controllerName();
 
     $controller->$action();
+
 
 
 
